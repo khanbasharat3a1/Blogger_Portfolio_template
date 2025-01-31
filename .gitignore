@@ -1,0 +1,35 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore build and dependency files
+/node_modules/
+/dist/
+/build/
+/venv/
+/env/
+/__pycache__/
+/*.egg-info/
+
+# Ignore environment variables and secrets
+.env
+*.log
+*.key
+*.pem
+
+# Ignore IDE/editor-specific files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Ignore compiled files
+*.pyc
+*.class
+*.o
+*.out
+*.exe
+
+# Ignore package manager files
+package-lock.json
+yarn.lock
+pip-log.txt
