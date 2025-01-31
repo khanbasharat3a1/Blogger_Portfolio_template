@@ -398,9 +398,12 @@ Default Blogger Styles
     <header class='main-header'>
         <div class='header-content'>
             <!-- Logo/Site Title -->
-            <div class='site-title'>
-                <a class='logo' href='/'>KHAN BASHARAT</a>
-            </div>
+            <h1>
+    <div class='site-title'>
+        <a class='logo' href='/'>KHAN BASHARAT</a>
+    </div>
+</h1>
+
 
             <!-- Navigation - Only visible on homepage -->
             <b:if cond='data:blog.url == data:blog.homepageUrl'>
@@ -434,7 +437,7 @@ Default Blogger Styles
         <!-- 404 Error Page -->
         <b:if cond='data:blog.pageType == &quot;error_page&quot;'>
             <div class='error-page'>
-                <h1>404</h1>
+                <h2>404</h2>
                 <p>Oops! The page you&#39;re looking for doesn&#39;t exist.</p>
                 <a class='btn-primary' expr:href='data:blog.homepageUrl'>Return to Homepage</a>
             </div>
@@ -475,7 +478,6 @@ Default Blogger Styles
                             <!-- Introduction Section -->
                             <section class='section-container' id='introduction'>
                                 <div class='section-content'>
-                                    <h2 class='section-title'>Introduction</h2>
                                     <div class='section-body'>
                                         <!-- Content will be added in Blogger interface -->
                                     </div>
@@ -578,13 +580,13 @@ Default Blogger Styles
                             <b:loop values='data:posts' var='post'>
                                 <article class='post'>
                                     <div class='post-header'>
-                                        <h1 class='post-title'>
+                                        <h2 class='post-title'>
                                             <b:if cond='data:post.url'>
                                                 <a expr:href='data:post.url'><data:post.title/></a>
                                             <b:else/>
                                                 <data:post.title/>
                                             </b:if>
-                                        </h1>
+                                        </h2>
                                         <div class='post-meta'>
                                             <time class='published' expr:datetime='data:post.date.iso8601'><data:post.date/></time>
                                         </div>
@@ -1389,7 +1391,7 @@ Default Blogger Styles
             padding: 2rem;
         }
 
-        .error-page h1 {
+        .error-page h2 {
             font-size: 8rem;
             color: var(--primary-color);
             margin: 0;
