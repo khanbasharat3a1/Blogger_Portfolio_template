@@ -381,6 +381,493 @@ Default Blogger Styles
         width: 100%;
     }
 }
+
+
+
+      :root {
+    --primary-color: #e74c3c;
+    --text-dark: #2d3436;
+    --text-light: #6c757d;
+    --bg-light: #f8f9fa;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+#introduction {
+    padding: 4rem 1rem;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--bg-light);
+    position: relative;
+    overflow: hidden;
+}
+
+#introduction::before {
+    content: &#39;&#39;;
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(231,76,60,0.03) 0%, rgba(231,76,60,0.08) 100%);
+    border-radius: 50%;
+    transform: rotate(-15deg);
+    z-index: 0;
+}
+
+.intro-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.intro-text {
+    animation: fadeIn 1s ease-out;
+}
+
+.profile-wrapper {
+    margin-bottom: 2rem;
+    max-width: 400px;
+    position: relative;
+}
+
+.profile-frame {
+    padding: 1rem;
+    background: var(--white);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+}
+
+.profile-decoration {
+    content: &#39;&#39;;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 1rem;
+    z-index: -1;
+    opacity: 0.3;
+    transition: var(--transition);
+}
+
+.profile-frame:hover {
+    transform: translateY(-5px);
+}
+
+.profile-frame:hover .profile-decoration {
+    transform: translate(5px, 5px);
+    opacity: 0.6;
+}
+
+.profile-img {
+    border-radius: 0.75rem;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: 2rem;
+    right: -2rem;
+    background: var(--white);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+    animation: float 3s ease-in-out infinite;
+}
+
+.experience-badge .years {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    display: block;
+}
+
+.experience-badge .text {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.2;
+}
+
+.welcome {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wave {
+    display: inline-block;
+    animation: wave 2.5s infinite;
+    transform-origin: 70% 70%;
+}
+
+.name {
+    font-size: 3rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.intro-bio {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-top: 1.5rem;
+    max-width: 90%;
+}
+
+.titles-container {
+    position: relative;
+    height: 3rem;
+    overflow: hidden;
+}
+
+.title-slide {
+    position: absolute;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    opacity: 0;
+    animation: slideTitles 12s infinite;
+    font-weight: 600;
+}
+
+.title-slide:nth-child(2) { animation-delay: 4s; }
+.title-slide:nth-child(3) { animation-delay: 8s; }
+
+.contact-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    animation: slideIn 1s ease-out;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.card-header h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.availability-badge {
+    background: rgba(231,76,60,0.1);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.contact-list {
+    margin-bottom: 2rem;
+}
+
+.contact-item {
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.contact-item:hover {
+    background: var(--bg-light);
+}
+
+.contact-item dt {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-item dd {
+    color: var(--text-dark);
+    margin-left: 1.8rem;
+}
+
+.contact-item dd a {
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-item dd a:hover {
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-icon:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.social-icon i {
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.social-icon::before {
+    content: &#39;&#39;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    transform: translateY(100%);
+    transition: var(--transition);
+}
+
+.social-icon:hover::before {
+    transform: translateY(0);
+}
+
+.cta-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231,76,60,0.3);
+}
+
+.cta-button i {
+    transition: var(--transition);
+}
+
+.cta-button:hover i {
+    transform: translateX(5px);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideTitles {
+    0% { opacity: 0; transform: translateY(100%); }
+    10% { opacity: 1; transform: translateY(0); }
+    30% { opacity: 1; transform: translateY(0); }
+    40% { opacity: 0; transform: translateY(-100%); }
+    100% { opacity: 0; transform: translateY(-100%); }
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .intro-container {
+        grid-template-columns: 1fr;
+        padding: 2rem 1rem;
+    }
+
+    .profile-wrapper {
+        max-width: 300px;
+        margin: 0 auto 2rem auto;
+    }
+
+    .experience-badge {
+        right: -1rem;
+        bottom: 1rem;
+    }
+
+    .name {
+        font-size: 2.2rem;
+    }
+
+    .title-slide {
+        font-size: 1.4rem;
+    }
+
+    .contact-card {
+        padding: 1.5rem;
+    }
+
+    .intro-text {
+        text-align: center;
+    }
+
+    .intro-bio {
+        margin: 1.5rem auto;
+    }
+
+    .contact-item dt {
+        justify-content: center;
+    }
+
+    .card-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+      @media (max-width: 768px) {
+    .titles-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .title-slide {
+        position: static;
+        opacity: 1;
+        transform: none;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        animation: none;
+        display: block;
+        white-space: normal;
+        word-wrap: break-word;
+    }
+
+    .title-slide:nth-child(2),
+    .title-slide:nth-child(3) {
+        animation: none;
+    }
+
+    .intro-bio {
+        text-align: justify;
+    }
+}
+
+
+      @media (max-width: 768px) {
+    .titles-container {
+        position: relative;
+        height: 3rem;
+        overflow: hidden;
+    }
+
+    .title-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(100%);
+        animation: mobileSlideTitles 12s infinite;
+    }
+
+    .title-slide:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .title-slide:nth-child(2) {
+        animation-delay: 4s;
+        color: #2f855a;
+    }
+
+    .title-slide:nth-child(3) {
+        animation-delay: 8s;
+        color: #c53030;
+    }
+
+    @keyframes mobileSlideTitles {
+        0% {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        10% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        30% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        40% {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+        100% {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+    }
+}
+
+
     </style>
 
     <!-- Schema Markup -->
@@ -476,14 +963,74 @@ Default Blogger Styles
                     <!-- Homepage Content -->
                     <b:if cond='data:blog.url == data:blog.homepageUrl'>
                         <div class='homepage-sections'>
-                            <!-- Introduction Section -->
-                            <section class='section-container' id='introduction'>
-                                <div class='section-content'>
-                                    <div class='section-body'>
-                                        <!-- Content will be added in Blogger interface -->
-                                    </div>
-                                </div>
-                            </section>
+
+
+
+
+                          <section id='introduction'>
+    <div class='intro-container'>
+        <div class='intro-text'>
+            <h2 class='welcome'>Hello <span class='wave'>👋</span></h2>
+            <h1 class='name'>I&#39;m Basharat Ahmad Khan</h1>
+            <div class='titles-container'>
+                <span class='title-slide'>Electronics Engineer</span>
+                <span class='title-slide'>Programmer</span>
+                <span class='title-slide'>SEO Expert</span>
+            </div>
+            <p class='intro-bio'>
+                I am a passionate Electronics &amp; Communication Engineer specializing in Artificial Intelligence, Machine Learning, IoT, and Embedded Systems. With hands-on experience in hardware design, software development, and data science, I strive to bridge the gap between technology and real-world applications.
+
+I&#8217;ve worked on projects ranging from IoT-based automation and robotics to AI-powered healthcare solutions. As a co-founder of Tech Insider Plus, I actively explore emerging technologies. My skills span Python, C, MATLAB, Embedded C, Flask, VHDL, SQL, and web development.
+
+Currently, I&#8217;m focused on developing innovative solutions that enhance efficiency and accessibility. Let&#8217;s connect and create the future together!
+            </p>
+        </div>
+
+        <div class='contact-card'>
+            <div class='card-header'>
+                <h3>Let&#39;s Connect</h3>
+            </div>
+
+            <dl class='contact-list'>
+                <div class='contact-item'>
+                    <dt><i class='fas fa-map-marker-alt'/> Address</dt>
+                    <dd>22, Check Treran, Tangmarg, J&amp;K</dd>
+                </div>
+                <div class='contact-item'>
+                    <dt><i class='fas fa-envelope'/> E-mail</dt>
+                    <dd><a href='mailto:khanbasharat3a1@gmail.com'>khanbasharat3a1@gmail.com</a></dd>
+                </div>
+                <div class='contact-item'>
+                    <dt><i class='fas fa-phone'/> Phone</dt>
+                    <dd><a href='tel:+918899977743'>+91 8899977743</a></dd>
+                </div>
+            </dl>
+
+            <div class='social-links'>
+                <a aria-label='Facebook' class='social-icon' href='[FACEBOOK-URL]' rel='noopener' target='_blank'>
+                    <i class='fab fa-facebook'/>
+                </a>
+                <a aria-label='Twitter' class='social-icon' href='[TWITTER-URL]' rel='noopener' target='_blank'>
+                    <i class='fab fa-twitter'/>
+                </a>
+                <a aria-label='Instagram' class='social-icon' href='[INSTAGRAM-URL]' rel='noopener' target='_blank'>
+                    <i class='fab fa-instagram'/>
+                </a>
+                <a aria-label='GitHub' class='social-icon' href='[GITHUB-URL]' rel='noopener' target='_blank'>
+                    <i class='fab fa-github'/>
+                </a>
+                <a aria-label='LinkedIn' class='social-icon' href='[LINKEDIN-URL]' rel='noopener' target='_blank'>
+                    <i class='fab fa-linkedin'/>
+                </a>
+            </div>
+
+            <a class='cta-button' href='#contact'>
+                Get in Touch
+                <i class='fas fa-arrow-right'/>
+            </a>
+        </div>
+    </div>
+</section>
 
                             <!-- About Section -->
                             <section class='section-container' id='about'>
