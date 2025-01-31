@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <html b:css='false' b:defaultwidgetversion='2' b:js='false' b:layoutsVersion='3' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
-
 <head>
     <!-- Required Meta Tags -->
     <meta charset='UTF-8'/>
-    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0' name='viewport'/>
     <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
 
     <!-- SEO Meta Tags -->
     <title><data:blog.pageTitle/></title>
-    <meta expr:content='data:blog.metaDescription' name='description'/>
+    <b:if cond='data:blog.metaDescription != &quot;&quot;'>
+        <meta expr:content='data:blog.metaDescription' name='description'/>
+    </b:if>
     <meta expr:content='data:blog.title' property='og:site_name'/>
+    <meta content='summary_large_image' name='twitter:card'/>
 
     <!-- Blogger Required -->
     <b:include data='blog' name='all-head-content'/>
-
-    <!-- Favicon -->
-    <link href='https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4cac1a6/css/all.css' rel='stylesheet' type='text/css'/>
 
     <!-- Styles -->
     <b:skin><![CDATA[/*
@@ -27,129 +26,8 @@ Default Blogger Styles
 */]]></b:skin>
 
     <style>
-    /*! normalize.css v8.0.1 | MIT License */
-    html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
-
-
-
-      /* Updated Navigation Styles */
-    .navbar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: var(--nav-height);
-        background-color: var(--bg-color);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 2rem;
-        z-index: 1000;
-        transition: all var(--transition-speed) ease;
-    }
-
-    /* Logo/Blog name visible on all pages */
-    .logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--primary-color);
-        text-decoration: none;
-        transition: color var(--transition-speed) ease;
-    }
-
-    .logo:hover {
-        color: var(--secondary-color);
-    }
-
-    /* Navigation links only visible on homepage */
-    .nav-links {
-        display: none; /* Hidden by default */
-    }
-
-    body.homepage .nav-links {
-        display: flex; /* Only shown on homepage */
-        gap: 2rem;
-    }
-
-    /* Main Content Updates */
-    main {
-        padding-top: 0; /* Remove space after navbar */
-        margin-top: var(--nav-height); /* Add margin to prevent content from going under navbar */
-    }
-
-    /* Section spacing update */
-    section {
-        padding: 0 2rem;  /* Removed top padding */
-        min-height: 50vh;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 1s forwards;
-    }
-
-    /* Updated 404 Page Styles */
-    .error-page {
-        position: fixed; /* Fix position to ensure full coverage */
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: var(--bg-color);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 2rem;
-        z-index: 999; /* Below navbar */
-    }
-
-    /* SEO Improvements */
-    article.post {
-        margin-bottom: 3rem;
-        padding: 2rem;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        transition: transform var(--transition-speed) ease;
-    }
-
-    .post h1 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        color: var(--text-color);
-    }
-
-    .post h2 {
-        font-size: 1.8rem;
-        margin: 2rem 0 1rem;
-    }
-
-    .post h3 {
-        font-size: 1.5rem;
-        margin: 1.5rem 0 1rem;
-    }
-
-    .post p {
-        margin-bottom: 1.5rem;
-        line-height: 1.8;
-    }
-
-    .post img {
-        max-width: 100%;
-        height: auto;
-        margin: 1.5rem 0;
-    }
-
-    /* Schema.org markup styles */
-    [itemprop=&quot;articleBody&quot;] {
-        margin: 2rem 0;
-    }
-
-    [itemprop=&quot;datePublished&quot;] {
-        color: #666;
-        font-size: 0.9rem;
-    }
+    /*! normalize.css v8.0.1 */
+    html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}
 
     /* Custom Variables */
     :root {
@@ -160,6 +38,7 @@ Default Blogger Styles
         --nav-height: 70px;
         --section-spacing: 5rem;
         --transition-speed: 0.3s;
+        --header-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     /* Base Styles */
@@ -171,6 +50,7 @@ Default Blogger Styles
 
     html {
         scroll-behavior: smooth;
+        scroll-padding-top: var(--nav-height);
     }
 
     body {
@@ -178,28 +58,36 @@ Default Blogger Styles
         line-height: 1.6;
         color: var(--text-color);
         background-color: var(--bg-color);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
 
-    /* Navigation */
-    .navbar {
+    /* Header &amp; Navigation */
+    .main-header {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: var(--nav-height);
         background-color: var(--bg-color);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 2rem;
+        box-shadow: var(--header-shadow);
         z-index: 1000;
-        transition: all var(--transition-speed) ease;
+        transition: transform 0.3s ease;
     }
 
-    .navbar.scrolled {
-        background-color: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
+    .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: var(--nav-height);
+    }
+
+    .site-title {
+        display: flex;
+        align-items: center;
     }
 
     .logo {
@@ -214,17 +102,24 @@ Default Blogger Styles
         color: var(--secondary-color);
     }
 
+    .navbar {
+        height: 100%;
+    }
+
     .nav-links {
         display: flex;
         gap: 2rem;
+        height: 100%;
+        align-items: center;
     }
 
     .nav-links a {
         color: var(--text-color);
         text-decoration: none;
         font-weight: 500;
-        transition: color var(--transition-speed) ease;
+        transition: all var(--transition-speed) ease;
         position: relative;
+        padding: 0.5rem 0;
     }
 
     .nav-links a::after {
@@ -232,10 +127,11 @@ Default Blogger Styles
         position: absolute;
         width: 0;
         height: 2px;
-        bottom: -4px;
-        left: 0;
+        bottom: 0;
+        left: 50%;
         background-color: var(--primary-color);
-        transition: width var(--transition-speed) ease;
+        transition: all var(--transition-speed) ease;
+        transform: translateX(-50%);
     }
 
     .nav-links a:hover {
@@ -252,178 +148,20 @@ Default Blogger Styles
         border: none;
         cursor: pointer;
         padding: 0.5rem;
+        z-index: 1001;
     }
 
     .mobile-menu-btn span {
         display: block;
         width: 25px;
-        height: 3px;
+        height: 2px;
         background-color: var(--text-color);
-        margin: 5px 0;
-        transition: all var(--transition-speed) ease;
+        margin: 6px 0;
+        transition: all 0.4s ease;
+        transform-origin: center;
     }
 
-    /* Main Content */
-    main {
-        padding-top: var(--nav-height);
-    }
-
-    section {
-        padding: var(--section-spacing) 2rem;
-        min-height: 50vh;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 1s forwards;
-    }
-
-    @keyframes fadeInUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    h2 {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-        color: var(--primary-color);
-        position: relative;
-    }
-
-    h2::after {
-        content: &#39;&#39;;
-        position: absolute;
-        left: 0;
-        bottom: -10px;
-        width: 50px;
-        height: 4px;
-        background-color: var(--primary-color);
-        border-radius: 2px;
-    }
-
-    /* Blog Posts */
-    .blog-posts {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 2rem;
-    }
-
-    .post {
-        margin-bottom: 3rem;
-        padding: 2rem;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        transition: transform var(--transition-speed) ease;
-    }
-
-    .post:hover {
-        transform: translateY(-5px);
-    }
-
-    .post-title {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-
-    .post-title a {
-        color: var(--text-color);
-        text-decoration: none;
-        transition: color var(--transition-speed) ease;
-    }
-
-    .post-title a:hover {
-        color: var(--primary-color);
-    }
-
-    .post-meta {
-        font-size: 0.9rem;
-        color: #666;
-        margin-bottom: 1rem;
-    }
-
-    .post-body {
-        margin: 2rem 0;
-    }
-
-    .post-labels {
-        margin-top: 1rem;
-        font-size: 0.9rem;
-    }
-
-    .post-labels a {
-        color: var(--primary-color);
-        text-decoration: none;
-        margin-right: 0.5rem;
-    }
-
-    /* Blog Pager */
-    .blog-pager {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 3rem;
-    }
-
-    .blog-pager a {
-        color: var(--primary-color);
-        text-decoration: none;
-        padding: 0.5rem 1rem;
-        border: 2px solid var(--primary-color);
-        border-radius: 4px;
-        transition: all var(--transition-speed) ease;
-    }
-
-    .blog-pager a:hover {
-        background-color: var(--primary-color);
-        color: white;
-    }
-
-    /* Footer */
-    footer {
-        background-color: #1f2937;
-        color: white;
-        padding: 2rem;
-        text-align: center;
-    }
-
-    .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    /* 404 Page */
-    .error-page {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 2rem;
-    }
-
-    .error-page h1 {
-        font-size: 6rem;
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-    }
-
-    .error-page a {
-        display: inline-block;
-        margin-top: 2rem;
-        padding: 0.75rem 1.5rem;
-        background-color: var(--primary-color);
-        color: white;
-        text-decoration: none;
-        border-radius: 4px;
-        transition: background-color var(--transition-speed) ease;
-    }
-
-    .error-page a:hover {
-        background-color: var(--secondary-color);
-    }
-
-    /* Mobile Styles */
+    /* Enhanced Mobile Styles */
     @media (max-width: 768px) {
         .mobile-menu-btn {
             display: block;
@@ -431,61 +169,72 @@ Default Blogger Styles
 
         .nav-links {
             position: fixed;
-            top: var(--nav-height);
-            left: -100%;
-            width: 80%;
-            height: calc(100vh - var(--nav-height));
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
             background-color: var(--bg-color);
             flex-direction: column;
-            padding: 2rem;
-            gap: 1rem;
-            transition: left var(--transition-speed) ease;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            justify-content: center;
+            gap: 2rem;
+            transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+            opacity: 0;
         }
 
         .nav-links.active {
-            left: 0;
+            right: 0;
+            opacity: 1;
         }
 
         .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 6px);
+            transform: translateY(8px) rotate(45deg);
         }
 
         .mobile-menu-btn.active span:nth-child(2) {
             opacity: 0;
+            transform: translateX(-20px);
         }
 
         .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -6px);
-        }
-
-        section {
-            padding: var(--section-spacing) 1rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-        }
-
-        .post-title {
-            font-size: 1.5rem;
+            transform: translateY(-8px) rotate(-45deg);
         }
     }
 
+    /* Hide header on scroll down, show on scroll up */
+    .header-hidden {
+        transform: translateY(-100%);
+    }
+
+    /* Footer Styles */
+    footer {
+        background-color: #1f2937;
+        color: white;
+        padding: 2rem;
+        margin-top: auto;
+        width: 100%;
+    }
+
     /* Animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     @keyframes slideIn {
         from {
-            transform: translateX(-100%);
+            transform: translateX(30px);
             opacity: 0;
         }
         to {
             transform: translateX(0);
             opacity: 1;
         }
-    }
-
-    .animate-slide-in {
-        animation: slideIn 0.5s ease forwards;
     }
 
     /* Accessibility */
@@ -499,57 +248,64 @@ Default Blogger Styles
     }
     </style>
 
-    <!-- Additional Scripts -->
-    <script async='async' src='https://www.googletagmanager.com/gtag/js'/>
-    <script>
-    //<![CDATA[
-    // Google Analytics
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    //]]>
-    </script>
-
-  <script type='application/ld+json'>
+    <!-- Schema Markup -->
+    <script type='application/ld+json'>
     {
         &quot;@context&quot;: &quot;http://schema.org&quot;,
         &quot;@type&quot;: &quot;WebSite&quot;,
-        &quot;name&quot;: &quot;<data:blog.title/>&quot;,
+        &quot;name&quot;: &quot;KHAN BASHARAT&quot;,
         &quot;url&quot;: &quot;<data:blog.homepageUrl/>&quot;
     }
     </script>
 </head>
 
-<body expr:class='data:blog.url == data:blog.homepageUrl ? &quot;homepage&quot; : &quot;&quot;'>
-    <!-- Updated Navbar Structure -->
-    <header>
-        <nav class='navbar'>
-            <a class='logo' expr:href='data:blog.homepageUrl'>KHAN BASHARAT</a>
+  <body>
+    <!-- Header with conditional navigation -->
+    <header class='main-header'>
+        <div class='header-content'>
+            <!-- Logo/Site Title - Always visible -->
+            <div class='site-title'>
+                <a class='logo' href='/'>KHAN BASHARAT</a>
+            </div>
+
+            <!-- Navigation - Only visible on homepage -->
             <b:if cond='data:blog.url == data:blog.homepageUrl'>
-                <button class='mobile-menu-btn' onclick='toggleMenu()'>
-                    <span/>
-                    <span/>
-                    <span/>
-                </button>
-                <div class='nav-links' id='navLinks'>
-                    <a href='#introduction'>Introduction</a>
-                    <a href='#about'>About</a>
-                    <a href='#experience'>Experience</a>
-                    <a href='#education'>Education</a>
-                    <a href='#projects'>Projects</a>
-                    <a href='#licenses'>Licenses &amp; Certifications</a>
-                    <a href='#skills'>Professional Skills</a>
-                    <a href='#volunteering'>Volunteering</a>
-                    <a href='#interests'>Hobby/Interests</a>
-                    <a href='#contact'>Contact</a>
-                </div>
+                <nav class='navbar'>
+                    <button aria-label='Toggle navigation menu' class='mobile-menu-btn' onclick='toggleMenu()'>
+                        <span/>
+                        <span/>
+                        <span/>
+                    </button>
+                    <div class='nav-links' id='navLinks'>
+                        <a href='#introduction'>Introduction</a>
+                        <a href='#about'>About</a>
+                        <a href='#experience'>Experience</a>
+                        <a href='#education'>Education</a>
+                        <a href='#projects'>Projects</a>
+                        <a href='#licenses'>Licenses &amp; Certifications</a>
+                        <a href='#skills'>Professional Skills</a>
+                        <a href='#volunteering'>Volunteering</a>
+                        <a href='#interests'>Hobby/Interests</a>
+                        <a href='#contact'>Contact</a>
+                    </div>
+                </nav>
             </b:if>
-        </nav>
+        </div>
     </header>
 
     <!-- Main Content -->
     <main>
-        <b:section id='main' showaddelement='true'>
+        <!-- 404 Error Page -->
+        <b:if cond='data:blog.pageType == &quot;error_page&quot;'>
+            <div class='error-page'>
+                <h1>404</h1>
+                <p>Oops! The page you&#39;re looking for doesn&#39;t exist.</p>
+                <a class='btn-primary' expr:href='data:blog.homepageUrl'>Return to Homepage</a>
+            </div>
+        </b:if>
+
+        <!-- Blog Posts Section -->
+        <b:section class='main-content' id='main' name='Main' showaddelement='true'>
           <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='2' visible='true'>
             <b:widget-settings>
               <b:widget-setting name='showDateHeader'>false</b:widget-setting>
@@ -562,7 +318,7 @@ Default Blogger Styles
               <b:widget-setting name='style.linkcolor'>#ffffff</b:widget-setting>
               <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
               <b:widget-setting name='style.bgcolor'>#ffffff</b:widget-setting>
-              <b:widget-setting name='timestampLabel'/>
+              <b:widget-setting name='timestampLabel'>Published</b:widget-setting>
               <b:widget-setting name='reactionsLabel'/>
               <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
               <b:widget-setting name='style.layout'>1x1</b:widget-setting>
@@ -577,40 +333,111 @@ Default Blogger Styles
               <b:widget-setting name='showReactions'>false</b:widget-setting>
             </b:widget-settings>
             <b:includable id='main' var='top'>
+                    <!-- Homepage Content -->
                     <b:if cond='data:blog.url == data:blog.homepageUrl'>
-                        <!-- Homepage Sections -->
-                        <section id='introduction'>
-                            <h2>Introduction</h2>
-                        </section>
-                        <section id='about'>
-                            <h2>About</h2>
-                        </section>
-                        <section id='experience'>
-                            <h2>Experience</h2>
-                        </section>
-                        <section id='education'>
-                            <h2>Education</h2>
-                        </section>
-                        <section id='projects'>
-                            <h2>Projects</h2>
-                        </section>
-                        <section id='licenses'>
-                            <h2>Licenses &amp; Certifications</h2>
-                        </section>
-                        <section id='skills'>
-                            <h2>Professional Skills</h2>
-                        </section>
-                        <section id='volunteering'>
-                            <h2>Volunteering</h2>
-                        </section>
-                        <section id='interests'>
-                            <h2>Hobby/Interests</h2>
-                        </section>
-                        <section id='contact'>
-                            <h2>Contact</h2>
-                        </section>
+                        <div class='homepage-sections'>
+                            <!-- Introduction Section -->
+                            <section class='section-container' id='introduction'>
+                                <div class='section-content'>
+                                    <h2 class='section-title'>Introduction</h2>
+                                    <div class='section-body'>
+                                        <!-- Content will be added in Blogger interface -->
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- About Section -->
+                            <section class='section-container' id='about'>
+                                <div class='section-content'>
+                                    <h2 class='section-title'>About</h2>
+                                    <div class='section-body'>
+                                        <!-- Content will be added in Blogger interface -->
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Experience Section -->
+                            <section class='section-container' id='experience'>
+                                <div class='section-content'>
+                                    <h2 class='section-title'>Experience</h2>
+                                    <div class='section-body'>
+                                        <!-- Content will be added in Blogger interface -->
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Education Section -->
+                            <section class='section-container' id='education'>
+                                <div class='section-content'>
+                                    <h2 class='section-title'>Education</h2>
+                                    <div class='section-body'>
+                                        <!-- Content will be added in Blogger interface -->
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Projects Section -->
+                            <section class='section-container' id='projects'>
+                                <div class='section-content'>
+                                    <h2 class='section-title'>Projects</h2>
+                                    <div class='section-body'>
+                                        <!-- Content will be added in Blogger interface -->
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Licenses Section -->
+                            <section class='section-container' id='licenses'>
+                                <div class='section-content'>
+                                    <h2 class='section-title'>Licenses &amp; Certifications</h2>
+                                    <div class='section-body'>
+                                        <!-- Content will be added in Blogger interface -->
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Skills Section -->
+                            <section class='section-container' id='skills'>
+                                <div class='section-content'>
+                                    <h2 class='section-title'>Professional Skills</h2>
+                                    <div class='section-body'>
+                                        <!-- Content will be added in Blogger interface -->
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Volunteering Section -->
+                            <section class='section-container' id='volunteering'>
+                                <div class='section-content'>
+                                    <h2 class='section-title'>Volunteering</h2>
+                                    <div class='section-body'>
+                                        <!-- Content will be added in Blogger interface -->
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Interests Section -->
+                            <section class='section-container' id='interests'>
+                                <div class='section-content'>
+                                    <h2 class='section-title'>Hobby/Interests</h2>
+                                    <div class='section-body'>
+                                        <!-- Content will be added in Blogger interface -->
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- Contact Section -->
+                            <section class='section-container' id='contact'>
+                                <div class='section-content'>
+                                    <h2 class='section-title'>Contact</h2>
+                                    <div class='section-body'>
+                                        <!-- Content will be added in Blogger interface -->
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
                     <b:else/>
-                        <!-- Blog Posts -->
+                        <!-- Blog Posts Display -->
                         <div class='blog-posts'>
                             <b:loop values='data:posts' var='post'>
                                 <article class='post'>
@@ -621,10 +448,8 @@ Default Blogger Styles
                                             <data:post.title/>
                                         </b:if>
                                     </h1>
-                                    <div class='post-header'>
-                                        <div class='post-meta'>
-                                            <span class='post-date'><data:post.date/></span>
-                                        </div>
+                                    <div class='post-meta'>
+                                        <time class='published' expr:datetime='data:post.date.iso8601'><data:post.date/></time>
                                     </div>
                                     <div class='post-body'>
                                         <data:post.body/>
@@ -637,30 +462,21 @@ Default Blogger Styles
                                             </b:loop>
                                         </div>
                                     </b:if>
-                                    <div class='post-footer'>
-                                        <b:if cond='data:post.allowComments'>
-                                            <div class='comments-link'>
-                                                <a expr:href='data:post.url + &quot;#comments&quot;'>
-                                                    <b:if cond='data:post.numComments == 1'>1 Comment<b:else/>
-                                                        <data:post.numComments/> Comments
-                                                    </b:if>
-                                                </a>
-                                            </div>
-                                        </b:if>
-                                    </div>
                                 </article>
                             </b:loop>
 
                             <!-- Pagination -->
                             <b:if cond='data:blog.pageType != &quot;item&quot;'>
-                                <div class='blog-pager'>
-                                    <b:if cond='data:newerPageUrl'>
-                                        <a class='newer-link' expr:href='data:newerPageUrl'>&#8592; Newer Posts</a>
-                                    </b:if>
-                                    <b:if cond='data:olderPageUrl'>
-                                        <a class='older-link' expr:href='data:olderPageUrl'>Older Posts &#8594;</a>
-                                    </b:if>
-                                </div>
+                                <nav class='blog-pager'>
+                                    <div class='pager-container'>
+                                        <b:if cond='data:newerPageUrl'>
+                                            <a class='newer-link btn-primary' expr:href='data:newerPageUrl'>&#8592; Newer Posts</a>
+                                        </b:if>
+                                        <b:if cond='data:olderPageUrl'>
+                                            <a class='older-link btn-primary' expr:href='data:olderPageUrl'>Older Posts &#8594;</a>
+                                        </b:if>
+                                    </div>
+                                </nav>
                             </b:if>
                         </div>
                     </b:if>
@@ -1285,59 +1101,384 @@ Default Blogger Styles
     <!-- Footer -->
     <footer>
         <div class='footer-content'>
-            <p><script>document.write(new Date().getFullYear())</script> KHAN BASHARAT. All rights reserved.</p>
+            <div class='footer-grid'>
+                <div class='footer-column'>
+                    <h3>About</h3>
+                    <p>Portfolio and blog of Khan Basharat, showcasing professional experience and technical insights.</p>
+                </div>
+                <div class='footer-column'>
+                    <h3>Quick Links</h3>
+                    <ul class='footer-links'>
+                        <li><a href='#'>Home</a></li>
+                        <li><a href='#about'>About</a></li>
+                        <li><a href='#projects'>Projects</a></li>
+                        <li><a href='#contact'>Contact</a></li>
+                    </ul>
+                </div>
+                <div class='footer-column'>
+                    <h3>Connect</h3>
+                    <div class='social-links'>
+                        <!-- Add your social media links here -->
+                    </div>
+                </div>
+            </div>
+            <div class='footer-bottom'>
+                <p><script>document.write(new Date().getFullYear())</script> KHAN BASHARAT. All rights reserved.</p>
+            </div>
         </div>
     </footer>
-
-    <!-- Updated 404 Page -->
-    <b:if cond='data:blog.pageType == &quot;error_page&quot;'>
-        <div class='error-page'>
-            <h1>404</h1>
-            <p>Page not found</p>
-            <a expr:href='data:blog.homepageUrl'>Return to Homepage</a>
-        </div>
-    </b:if>
-
-    <!-- Enhanced SEO for Blog Posts -->
-    <b:if cond='data:blog.pageType == &quot;item&quot;'>
-        <article itemscope='itemscope' itemtype='http://schema.org/BlogPosting'>
-            <meta expr:content='data:blog.pageName' itemprop='headline'/>
-            <meta expr:content='data:post.author.name' itemprop='author'/>
-            <meta expr:content='data:post.timestamp' itemprop='datePublished'/>
-            <meta expr:content='data:blog.title' itemprop='publisher'/>
-        </article>
-    </b:if>
 
     <!-- JavaScript -->
     <script>
     //<![CDATA[
+    // Toggle mobile menu
     function toggleMenu() {
-        document.getElementById("navLinks").classList.toggle("active");
+        document.getElementById('navLinks').classList.toggle('active');
+        document.querySelector('.mobile-menu-btn').classList.toggle('active');
+        document.body.classList.toggle('menu-open');
     }
 
-    // Smooth scroll for navigation links
-    document.addEventListener("DOMContentLoaded", function() {
-        const links = document.querySelectorAll("nav a[href^='#']");
+    // Hide header on scroll down, show on scroll up
+    let lastScroll = 0;
+    const header = document.querySelector('.main-header');
 
-        for(const link of links) {
-            link.addEventListener("click", function(e) {
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll <= 0) {
+            header.classList.remove('header-hidden');
+            return;
+        }
+
+        if (currentScroll > lastScroll && !header.classList.contains('header-hidden')) {
+            // Scroll down
+            header.classList.add('header-hidden');
+        } else if (currentScroll < lastScroll && header.classList.contains('header-hidden')) {
+            // Scroll up
+            header.classList.remove('header-hidden');
+        }
+
+        lastScroll = currentScroll;
+    });
+
+    // Smooth scroll for navigation links
+    document.addEventListener('DOMContentLoaded', function() {
+        const links = document.querySelectorAll('a[href^="#"]');
+
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetId = this.getAttribute("href").substring(1);
+
+                const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
 
-                if(targetElement) {
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                    document.querySelector('.mobile-menu-btn').classList.remove('active');
+                    document.body.classList.remove('menu-open');
+
                     targetElement.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
-
-                // Close mobile menu after clicking
-                document.getElementById("navLinks").classList.remove("active");
             });
-        }
+        });
+    });
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, observerOptions);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.section-container').forEach(section => {
+            observer.observe(section);
+        });
     });
     //]]>
     </script>
+
+    <style>
+    /* Continuing Footer Styles */
+    .footer-links a:hover {
+        color: var(--primary-color);
+        text-decoration: underline;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .social-links a {
+        color: #fff;
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+        color: var(--primary-color);
+    }
+
+    .footer-bottom {
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+    }
+
+    /* Error Page Styling */
+    .error-page {
+        min-height: calc(100vh - var(--nav-height));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .error-page h1 {
+        font-size: 8rem;
+        color: var(--primary-color);
+        margin: 0;
+        line-height: 1;
+        animation: pulse 2s infinite;
+    }
+
+    .error-page p {
+        font-size: 1.5rem;
+        margin: 2rem 0;
+        color: var(--text-color);
+    }
+
+    /* Button Styles */
+    .btn-primary {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--primary-color);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        border: 2px solid var(--primary-color);
+    }
+
+    .btn-primary:hover {
+        background-color: transparent;
+        color: var(--primary-color);
+    }
+
+    /* Blog Pager Styling */
+    .blog-pager {
+        margin-top: 4rem;
+    }
+
+    .pager-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    /* Enhanced Responsive Styles */
+    @media (max-width: 1200px) {
+        .section-container {
+            padding: 4rem 1.5rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .post {
+            padding: 1.5rem;
+        }
+
+        .post-title {
+            font-size: 1.5rem;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .social-links {
+            justify-content: center;
+        }
+
+        .pager-container {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    /* Menu Open State */
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    /* Additional Animations */
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    /* Section-specific styles */
+    #introduction {
+        background-color: var(--bg-color);
+    }
+
+    #about {
+        background-color: #f8fafc;
+    }
+
+    #experience .section-body {
+        display: grid;
+        gap: 2rem;
+    }
+
+    .experience-card {
+        padding: 2rem;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .experience-card:hover {
+        transform: translateY(-5px);
+    }
+
+    #skills .section-body {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    .skill-category {
+        margin-bottom: 2rem;
+    }
+
+    .skill-category h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .skill-tag {
+        padding: 0.5rem 1rem;
+        background-color: #f1f5f9;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+    }
+
+    #projects .section-body {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+
+    .project-card {
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .project-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .project-content {
+        padding: 1.5rem;
+    }
+
+    .project-title {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+    }
+
+    #contact .section-body {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .contact-info {
+        display: grid;
+        gap: 1.5rem;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .contact-item i {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--secondary-color);
+    }
+    </style>
 </body>
 </html>
