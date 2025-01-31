@@ -18,6 +18,9 @@
     <!-- Blogger Required -->
     <b:include data='blog' name='all-head-content'/>
 
+    <!-- Google Fonts -->
+    <link expr:href='&quot;https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap&quot;' rel='stylesheet'/>
+
     <!-- Styles -->
     <b:skin><![CDATA[/*
 ======================
@@ -31,14 +34,29 @@ Default Blogger Styles
 
     /* Custom Variables */
     :root {
+        /* Colors */
         --primary-color: #2563eb;
-        --secondary-color: #1e40af;
+        --primary-dark: #1e40af;
+        --primary-light: #3b82f6;
         --text-color: #1f2937;
+        --text-light: #4b5563;
         --bg-color: #ffffff;
-        --nav-height: 70px;
-        --section-spacing: 5rem;
-        --transition-speed: 0.3s;
-        --header-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        --bg-light: #f8fafc;
+        --border-color: #e5e7eb;
+
+        /* Spacing */
+        --nav-height: 80px;
+        --section-spacing: 6rem;
+        --content-width: 1200px;
+
+        /* Transitions */
+        --transition-fast: 0.2s ease;
+        --transition-normal: 0.3s ease;
+
+        /* Shadows */
+        --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+        --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
     }
 
     /* Base Styles */
@@ -50,11 +68,11 @@ Default Blogger Styles
 
     html {
         scroll-behavior: smooth;
-        scroll-padding-top: var(--nav-height);
+        scroll-padding-top: calc(var(--nav-height) + 2rem);
     }
 
     body {
-        font-family: -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        font-family: &#39;Inter&#39;, -apple-system, BlinkMacSystemFont, sans-serif;
         line-height: 1.6;
         color: var(--text-color);
         background-color: var(--bg-color);
@@ -63,26 +81,43 @@ Default Blogger Styles
         flex-direction: column;
     }
 
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: &#39;Poppins&#39;, sans-serif;
+        font-weight: 600;
+        line-height: 1.3;
+        color: var(--text-color);
+    }
+
+
+
+
+
     /* Header &amp; Navigation */
     .main-header {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        background-color: var(--bg-color);
-        box-shadow: var(--header-shadow);
+        height: var(--nav-height);
+        background-color: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(8px);
+        box-shadow: var(--shadow-sm);
         z-index: 1000;
-        transition: transform 0.3s ease;
+        transition: transform var(--transition-normal);
     }
 
     .header-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: var(--nav-height);
+        max-width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     }
 
     .site-title {
@@ -91,19 +126,21 @@ Default Blogger Styles
     }
 
     .logo {
+        font-family: &#39;Poppins&#39;, sans-serif;
         font-size: 1.5rem;
         font-weight: 700;
         color: var(--primary-color);
         text-decoration: none;
-        transition: color var(--transition-speed) ease;
+        letter-spacing: -0.5px;
+        transition: color var(--transition-fast);
     }
 
     .logo:hover {
-        color: var(--secondary-color);
+        color: var(--primary-dark);
     }
 
     .navbar {
-        height: 100%;
+        height: auto;
     }
 
     .nav-links {
@@ -114,10 +151,12 @@ Default Blogger Styles
     }
 
     .nav-links a {
+        font-family: &#39;Inter&#39;, sans-serif;
         color: var(--text-color);
         text-decoration: none;
         font-weight: 500;
-        transition: all var(--transition-speed) ease;
+        font-size: 0.95rem;
+        transition: all var(--transition-fast);
         position: relative;
         padding: 0.5rem 0;
     }
@@ -130,8 +169,9 @@ Default Blogger Styles
         bottom: 0;
         left: 50%;
         background-color: var(--primary-color);
-        transition: all var(--transition-speed) ease;
+        transition: all var(--transition-normal);
         transform: translateX(-50%);
+        opacity: 0;
     }
 
     .nav-links a:hover {
@@ -140,6 +180,7 @@ Default Blogger Styles
 
     .nav-links a:hover::after {
         width: 100%;
+        opacity: 1;
     }
 
     .mobile-menu-btn {
@@ -153,18 +194,55 @@ Default Blogger Styles
 
     .mobile-menu-btn span {
         display: block;
-        width: 25px;
+        width: 24px;
         height: 2px;
         background-color: var(--text-color);
         margin: 6px 0;
-        transition: all 0.4s ease;
+        transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
         transform-origin: center;
+    }
+
+    .close-menu-btn {
+        display: none;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 1002;
+    }
+
+    .close-menu-btn::before,
+    .close-menu-btn::after {
+        content: &#39;&#39;;
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background-color: var(--text-color);
+        transition: all var(--transition-normal);
+    }
+
+    .close-menu-btn::before {
+        transform: rotate(45deg);
+    }
+
+    .close-menu-btn::after {
+        transform: rotate(-45deg);
     }
 
     /* Enhanced Mobile Styles */
     @media (max-width: 768px) {
         .mobile-menu-btn {
             display: block;
+        }
+
+        .close-menu-btn {
+            display: block;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity var(--transition-normal);
         }
 
         .nav-links {
@@ -179,6 +257,7 @@ Default Blogger Styles
             gap: 2rem;
             transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
             opacity: 0;
+            padding: 2rem;
         }
 
         .nav-links.active {
@@ -186,8 +265,18 @@ Default Blogger Styles
             opacity: 1;
         }
 
+        .nav-links.active + .close-menu-btn {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .nav-links a {
+            font-size: 1.25rem;
+            padding: 1rem;
+        }
+
         .mobile-menu-btn.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
+            transform: rotate(45deg) translate(8px, 8px);
         }
 
         .mobile-menu-btn.active span:nth-child(2) {
@@ -196,56 +285,101 @@ Default Blogger Styles
         }
 
         .mobile-menu-btn.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
+            transform: rotate(-45deg) translate(8px, -8px);
         }
     }
 
-    /* Hide header on scroll down, show on scroll up */
+    /* Main Content Padding */
+    main {
+        padding-top: var(--nav-height);
+    }
+
+    /* Content Top Margin for Blog Posts and Sections */
+    .post-header,
+    .section-container {
+        margin-top: 2rem;
+    }
+
+    /* Hide header on scroll */
     .header-hidden {
         transform: translateY(-100%);
     }
 
-    /* Footer Styles */
-    footer {
-        background-color: #1f2937;
-        color: white;
-        padding: 2rem;
-        margin-top: auto;
+      .mobile-nav-close {
+    display: none;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.mobile-nav-close span {
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: var(--text-color);
+    top: 50%;
+    left: 0;
+    transition: background-color var(--transition-fast);
+}
+
+.mobile-nav-close span:first-child {
+    transform: rotate(45deg);
+}
+
+.mobile-nav-close span:last-child {
+    transform: rotate(-45deg);
+}
+
+.mobile-nav-close:hover span {
+    background-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .mobile-nav-close {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--bg-color);
+        flex-direction: column;
+        justify-content: center;
+        gap: 2rem;
+        transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+        opacity: 0;
+        padding: 4rem 2rem 2rem 2rem; /* Increased top padding to accommodate close button */
+    }
+
+    .nav-links.active {
+        right: 0;
+        opacity: 1;
+    }
+
+    .mobile-menu-btn.active {
+        display: none; /* Hide hamburger when menu is open */
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    .nav-links a {
+        font-size: 1.25rem;
+        text-align: center;
+        padding: 0.75rem;
         width: 100%;
     }
-
-    /* Animations */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes slideIn {
-        from {
-            transform: translateX(30px);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-
-    /* Accessibility */
-    @media (prefers-reduced-motion: reduce) {
-        * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-            scroll-behavior: auto !important;
-        }
-    }
+}
     </style>
 
     <!-- Schema Markup -->
@@ -263,7 +397,7 @@ Default Blogger Styles
     <!-- Header with conditional navigation -->
     <header class='main-header'>
         <div class='header-content'>
-            <!-- Logo/Site Title - Always visible -->
+            <!-- Logo/Site Title -->
             <div class='site-title'>
                 <a class='logo' href='/'>KHAN BASHARAT</a>
             </div>
@@ -271,24 +405,26 @@ Default Blogger Styles
             <!-- Navigation - Only visible on homepage -->
             <b:if cond='data:blog.url == data:blog.homepageUrl'>
                 <nav class='navbar'>
-                    <button aria-label='Toggle navigation menu' class='mobile-menu-btn' onclick='toggleMenu()'>
-                        <span/>
-                        <span/>
-                        <span/>
-                    </button>
-                    <div class='nav-links' id='navLinks'>
-                        <a href='#introduction'>Introduction</a>
-                        <a href='#about'>About</a>
-                        <a href='#experience'>Experience</a>
-                        <a href='#education'>Education</a>
-                        <a href='#projects'>Projects</a>
-                        <a href='#licenses'>Licenses &amp; Certifications</a>
-                        <a href='#skills'>Professional Skills</a>
-                        <a href='#volunteering'>Volunteering</a>
-                        <a href='#interests'>Hobby/Interests</a>
-                        <a href='#contact'>Contact</a>
-                    </div>
-                </nav>
+    <button aria-label='Toggle navigation menu' class='mobile-menu-btn' onclick='toggleMenu()'>
+        <span/>
+        <span/>
+        <span/>
+    </button>
+    <div class='nav-links' id='navLinks'>
+        <!-- Add the close button inside nav-links -->
+        <button aria-label='Close navigation menu' class='mobile-nav-close' onclick='toggleMenu()'>
+            <span/>
+            <span/>
+        </button>
+        <a href='#about'>About</a>
+        <a href='#experience'>Experience</a>
+        <a href='#education'>Education</a>
+        <a href='#projects'>Projects</a>
+        <a href='#licenses'>Licenses &amp; Certifications</a>
+        <a href='#skills'>Professional Skills</a>
+        <a href='#contact'>Contact</a>
+    </div>
+</nav>
             </b:if>
         </div>
     </header>
@@ -441,24 +577,25 @@ Default Blogger Styles
                         <div class='blog-posts'>
                             <b:loop values='data:posts' var='post'>
                                 <article class='post'>
-                                    <h1 class='post-title'>
-                                        <b:if cond='data:post.url'>
-                                            <a expr:href='data:post.url'><data:post.title/></a>
-                                        <b:else/>
-                                            <data:post.title/>
-                                        </b:if>
-                                    </h1>
-                                    <div class='post-meta'>
-                                        <time class='published' expr:datetime='data:post.date.iso8601'><data:post.date/></time>
+                                    <div class='post-header'>
+                                        <h1 class='post-title'>
+                                            <b:if cond='data:post.url'>
+                                                <a expr:href='data:post.url'><data:post.title/></a>
+                                            <b:else/>
+                                                <data:post.title/>
+                                            </b:if>
+                                        </h1>
+                                        <div class='post-meta'>
+                                            <time class='published' expr:datetime='data:post.date.iso8601'><data:post.date/></time>
+                                        </div>
                                     </div>
                                     <div class='post-body'>
                                         <data:post.body/>
                                     </div>
                                     <b:if cond='data:post.labels'>
                                         <div class='post-labels'>
-                                            Labels:
                                             <b:loop values='data:post.labels' var='label'>
-                                                <a expr:href='data:label.url'><data:label.name/></a><b:if cond='data:label.isLast != true'>,</b:if>
+                                                <a class='label-link' expr:href='data:label.url'><data:label.name/></a>
                                             </b:loop>
                                         </div>
                                     </b:if>
@@ -1098,63 +1235,230 @@ Default Blogger Styles
         </b:section>
     </main>
 
-    <!-- Footer -->
+    <!-- Simplified Footer -->
     <footer>
         <div class='footer-content'>
-            <div class='footer-grid'>
-                <div class='footer-column'>
-                    <h3>About</h3>
-                    <p>Portfolio and blog of Khan Basharat, showcasing professional experience and technical insights.</p>
-                </div>
-                <div class='footer-column'>
-                    <h3>Quick Links</h3>
-                    <ul class='footer-links'>
-                        <li><a href='#'>Home</a></li>
-                        <li><a href='#about'>About</a></li>
-                        <li><a href='#projects'>Projects</a></li>
-                        <li><a href='#contact'>Contact</a></li>
-                    </ul>
-                </div>
-                <div class='footer-column'>
-                    <h3>Connect</h3>
-                    <div class='social-links'>
-                        <!-- Add your social media links here -->
-                    </div>
-                </div>
-            </div>
-            <div class='footer-bottom'>
-                <p><script>document.write(new Date().getFullYear())</script> KHAN BASHARAT. All rights reserved.</p>
-            </div>
+            <p>&amp;copy; <script>document.write(new Date().getFullYear())</script> KHAN BASHARAT. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <style>
+        /* Main Content Styles */
+        .section-container {
+            padding: var(--section-spacing) 2rem;
+        }
+
+        .section-content {
+            max-width: var(--content-width);
+            display: flex;
+    		justify-content: center;
+    		align-items: flex-start;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: &#39;&#39;;
+            position: absolute;
+            left: 0;
+            bottom: -0.5rem;
+            width: 60%;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Blog Posts Styling */
+        .blog-posts {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .post {
+            background: var(--bg-light);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .post-header {
+            margin-bottom: 2rem;
+        }
+
+        .post-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .post-title a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        .post-title a:hover {
+            color: var(--primary-color);
+        }
+
+        .post-meta {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .post-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .post-labels {
+            margin-top: 2rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .label-link {
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            transition: background-color var(--transition-fast);
+        }
+
+        .label-link:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Pagination */
+        .blog-pager {
+            margin-top: 4rem;
+        }
+
+        .pager-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-light);
+            padding: 2rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Error Page */
+        .error-page {
+            min-height: calc(100vh - var(--nav-height));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .error-page h1 {
+            font-size: 8rem;
+            color: var(--primary-color);
+            margin: 0;
+            line-height: 1;
+            animation: pulse 2s infinite;
+        }
+
+        .error-page p {
+            font-size: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .post-title {
+                font-size: 1.5rem;
+            }
+
+            .post {
+                padding: 1.5rem;
+            }
+
+            .pager-container {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+        }
+    </style>
+
     <script>
     //<![CDATA[
     // Toggle mobile menu
     function toggleMenu() {
-        document.getElementById('navLinks').classList.toggle('active');
-        document.querySelector('.mobile-menu-btn').classList.toggle('active');
-        document.body.classList.toggle('menu-open');
+        const navLinks = document.getElementById('navLinks');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const body = document.body;
+
+        navLinks.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
+        body.classList.toggle('menu-open');
     }
 
     // Hide header on scroll down, show on scroll up
     let lastScroll = 0;
     const header = document.querySelector('.main-header');
+    const scrollThreshold = 50;
 
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
 
-        if (currentScroll <= 0) {
+        if (currentScroll <= scrollThreshold) {
             header.classList.remove('header-hidden');
             return;
         }
 
         if (currentScroll > lastScroll && !header.classList.contains('header-hidden')) {
-            // Scroll down
             header.classList.add('header-hidden');
         } else if (currentScroll < lastScroll && header.classList.contains('header-hidden')) {
-            // Scroll up
             header.classList.remove('header-hidden');
         }
 
@@ -1174,311 +1478,66 @@ Default Blogger Styles
 
                 if (targetElement) {
                     // Close mobile menu if open
-                    document.getElementById('navLinks').classList.remove('active');
-                    document.querySelector('.mobile-menu-btn').classList.remove('active');
-                    document.body.classList.remove('menu-open');
+                    const navLinks = document.getElementById('navLinks');
+                    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                    const body = document.body;
 
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                    body.classList.remove('menu-open');
+
+                    // Smooth scroll to target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - (header.offsetHeight + 20),
+                        behavior: 'smooth'
                     });
                 }
             });
         });
     });
 
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Only animate once
-            }
-        });
-    }, observerOptions);
-
+    // Add scroll reveal animation to sections
     document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
         document.querySelectorAll('.section-container').forEach(section => {
             observer.observe(section);
         });
     });
+
+    // Prevent scrolling when mobile menu is open
+    document.addEventListener('DOMContentLoaded', () => {
+        const body = document.body;
+
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.target.classList.contains('menu-open')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        observer.observe(body, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    });
     //]]>
     </script>
-
-    <style>
-    /* Continuing Footer Styles */
-    .footer-links a:hover {
-        color: var(--primary-color);
-        text-decoration: underline;
-    }
-
-    .social-links {
-        display: flex;
-        gap: 1rem;
-        margin-top: 1rem;
-    }
-
-    .social-links a {
-        color: #fff;
-        font-size: 1.5rem;
-        transition: color 0.3s ease;
-    }
-
-    .social-links a:hover {
-        color: var(--primary-color);
-    }
-
-    .footer-bottom {
-        padding-top: 2rem;
-        margin-top: 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        text-align: center;
-    }
-
-    /* Error Page Styling */
-    .error-page {
-        min-height: calc(100vh - var(--nav-height));
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 2rem;
-    }
-
-    .error-page h1 {
-        font-size: 8rem;
-        color: var(--primary-color);
-        margin: 0;
-        line-height: 1;
-        animation: pulse 2s infinite;
-    }
-
-    .error-page p {
-        font-size: 1.5rem;
-        margin: 2rem 0;
-        color: var(--text-color);
-    }
-
-    /* Button Styles */
-    .btn-primary {
-        display: inline-block;
-        padding: 0.75rem 1.5rem;
-        background-color: var(--primary-color);
-        color: #fff;
-        text-decoration: none;
-        border-radius: 4px;
-        transition: all 0.3s ease;
-        border: 2px solid var(--primary-color);
-    }
-
-    .btn-primary:hover {
-        background-color: transparent;
-        color: var(--primary-color);
-    }
-
-    /* Blog Pager Styling */
-    .blog-pager {
-        margin-top: 4rem;
-    }
-
-    .pager-container {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-    }
-
-    /* Enhanced Responsive Styles */
-    @media (max-width: 1200px) {
-        .section-container {
-            padding: 4rem 1.5rem;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .section-title {
-            font-size: 2rem;
-        }
-
-        .post {
-            padding: 1.5rem;
-        }
-
-        .post-title {
-            font-size: 1.5rem;
-        }
-
-        .footer-grid {
-            grid-template-columns: 1fr;
-            text-align: center;
-        }
-
-        .social-links {
-            justify-content: center;
-        }
-
-        .pager-container {
-            flex-direction: column;
-            align-items: center;
-        }
-    }
-
-    /* Menu Open State */
-    body.menu-open {
-        overflow: hidden;
-    }
-
-    /* Additional Animations */
-    @keyframes pulse {
-        0% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.05);
-        }
-        100% {
-            transform: scale(1);
-        }
-    }
-
-    /* Section-specific styles */
-    #introduction {
-        background-color: var(--bg-color);
-    }
-
-    #about {
-        background-color: #f8fafc;
-    }
-
-    #experience .section-body {
-        display: grid;
-        gap: 2rem;
-    }
-
-    .experience-card {
-        padding: 2rem;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-    }
-
-    .experience-card:hover {
-        transform: translateY(-5px);
-    }
-
-    #skills .section-body {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-    }
-
-    .skill-category {
-        margin-bottom: 2rem;
-    }
-
-    .skill-category h3 {
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-    }
-
-    .skill-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .skill-tag {
-        padding: 0.5rem 1rem;
-        background-color: #f1f5f9;
-        border-radius: 20px;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-    }
-
-    .skill-tag:hover {
-        background-color: var(--primary-color);
-        color: #fff;
-    }
-
-    #projects .section-body {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-    }
-
-    .project-card {
-        background: #fff;
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px);
-    }
-
-    .project-image {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-    }
-
-    .project-content {
-        padding: 1.5rem;
-    }
-
-    .project-title {
-        font-size: 1.25rem;
-        margin-bottom: 1rem;
-        color: var(--text-color);
-    }
-
-    #contact .section-body {
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    .contact-info {
-        display: grid;
-        gap: 1.5rem;
-    }
-
-    .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .contact-item i {
-        font-size: 1.5rem;
-        color: var(--primary-color);
-    }
-
-    /* Scrollbar Styling */
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: var(--primary-color);
-        border-radius: 5px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: var(--secondary-color);
-    }
-    </style>
 </body>
 </html>
