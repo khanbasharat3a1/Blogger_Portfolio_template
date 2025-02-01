@@ -394,7 +394,7 @@ Default Blogger Styles
     --transition: all 0.3s ease;
 }
 
-#introduction {
+#about {
     padding: 4rem 1rem;
     min-height: 100vh;
     display: flex;
@@ -404,7 +404,7 @@ Default Blogger Styles
     overflow: hidden;
 }
 
-#introduction::before {
+#about::before {
     content: &#39;&#39;;
     position: absolute;
     top: -50%;
@@ -509,6 +509,9 @@ Default Blogger Styles
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-family: &#39;Poppins&#39;, sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
 }
 
 .wave {
@@ -522,6 +525,8 @@ Default Blogger Styles
     color: var(--text-dark);
     margin-bottom: 1.5rem;
     line-height: 1.2;
+    font-family: &#39;Poppins&#39;, sans-serif;
+    font-weight: 600;
 }
 
 .intro-bio {
@@ -867,6 +872,29 @@ Default Blogger Styles
     }
 }
 
+      .cv-download-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: #2d3436;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        margin-bottom: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .cv-download-button:hover {
+        background: var(--primary-color);
+        transform: translateY(-2px);
+    }
+
+    .cv-download-button i {
+        margin-left: 0.5rem;
+    }
+
 
     </style>
 
@@ -960,18 +988,20 @@ Default Blogger Styles
               <b:widget-setting name='showReactions'>false</b:widget-setting>
             </b:widget-settings>
             <b:includable id='main' var='top'>
-                    <!-- Homepage Content -->
+
+
+              <!-- Homepage Content -->
                     <b:if cond='data:blog.url == data:blog.homepageUrl'>
                         <div class='homepage-sections'>
 
 
 
 
-                          <section id='introduction'>
+                          <section id='about'>
     <div class='intro-container'>
         <div class='intro-text'>
-            <h2 class='welcome'>Hello <span class='wave'>👋</span></h2>
-            <h1 class='name'>I&#39;m Basharat Ahmad Khan</h1>
+            <p class='welcome'>Hello <span class='wave'>👋</span></p>
+            <h3 class='name'>I&#39;m Basharat Ahmad Khan</h3>
             <div class='titles-container'>
                 <span class='title-slide'>Electronics Engineer</span>
                 <span class='title-slide'>Programmer</span>
@@ -1007,22 +1037,27 @@ Currently, I&#8217;m focused on developing innovative solutions that enhance eff
             </dl>
 
             <div class='social-links'>
-                <a aria-label='Facebook' class='social-icon' href='[FACEBOOK-URL]' rel='noopener' target='_blank'>
+                <a aria-label='Facebook' class='social-icon' href='https://www.facebook.com/khanbasharat3a1/' rel='noopener' target='_blank'>
                     <i class='fab fa-facebook'/>
                 </a>
-                <a aria-label='Twitter' class='social-icon' href='[TWITTER-URL]' rel='noopener' target='_blank'>
+                <a aria-label='Twitter' class='social-icon' href='https://twitter.com/KhanBasharat3a1' rel='noopener' target='_blank'>
                     <i class='fab fa-twitter'/>
                 </a>
-                <a aria-label='Instagram' class='social-icon' href='[INSTAGRAM-URL]' rel='noopener' target='_blank'>
+                <a aria-label='Instagram' class='social-icon' href='https://www.instagram.com/khanbasharat3a1/' rel='noopener' target='_blank'>
                     <i class='fab fa-instagram'/>
                 </a>
-                <a aria-label='GitHub' class='social-icon' href='[GITHUB-URL]' rel='noopener' target='_blank'>
+                <a aria-label='GitHub' class='social-icon' href='https://github.com/khanbasharat3a1' rel='noopener' target='_blank'>
                     <i class='fab fa-github'/>
                 </a>
-                <a aria-label='LinkedIn' class='social-icon' href='[LINKEDIN-URL]' rel='noopener' target='_blank'>
+                <a aria-label='LinkedIn' class='social-icon' href='https://www.linkedin.com/in/basharat-khan-a628a4214/' rel='noopener' target='_blank'>
                     <i class='fab fa-linkedin'/>
                 </a>
             </div>
+
+          <a class='cv-download-button' href='https://drive.google.com/file/d/1vp0TuEiBK4ndmoV0QcJVaOulqBYhCdrZ/view'>
+                Download CV
+                <i class='fas fa-download'/>
+            </a>
 
             <a class='cta-button' href='#contact'>
                 Get in Touch
@@ -1032,15 +1067,7 @@ Currently, I&#8217;m focused on developing innovative solutions that enhance eff
     </div>
 </section>
 
-                            <!-- About Section -->
-                            <section class='section-container' id='about'>
-                                <div class='section-content'>
-                                    <h2 class='section-title'>About</h2>
-                                    <div class='section-body'>
-                                        <!-- Content will be added in Blogger interface -->
-                                    </div>
-                                </div>
-                            </section>
+
 
                             <!-- Experience Section -->
                             <section class='section-container' id='experience'>
