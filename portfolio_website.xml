@@ -535,6 +535,7 @@ Default Blogger Styles
     line-height: 1.6;
     margin-top: 1.5rem;
     max-width: 90%;
+    text-align: justify;
 }
 
 /* Desktop Styles */
@@ -994,8 +995,8 @@ Default Blogger Styles
                           <section id='about'>
     <div class='intro-container'>
         <div class='intro-text'>
-            <p class='welcome'>Hello <span class='wave'>👋</span></p>
-            <h3 class='name'>I&#39;m Basharat Ahmad Khan</h3>
+            <p class='welcome'>Hi there <span class='wave'>👋</span></p>
+            <h3 class='name'>I&#39;m Basharat Ahmad Khan Duli</h3>
             <div class='titles-container'>
                 <span class='title-slide'>Electronics Engineer</span>
                 <span class='title-slide'>Programmer</span>
@@ -1018,7 +1019,7 @@ Currently, I&#8217;m focused on developing innovative solutions that enhance eff
             <dl class='contact-list'>
                 <div class='contact-item'>
                     <dt><i class='fas fa-map-marker-alt'/> Address</dt>
-                    <dd>22, Check Treran, Tangmarg, J&amp;K</dd>
+                    <dd>Tangmarg, Baramulla, J&amp;K</dd>
                 </div>
                 <div class='contact-item'>
                     <dt><i class='fas fa-envelope'/> E-mail</dt>
