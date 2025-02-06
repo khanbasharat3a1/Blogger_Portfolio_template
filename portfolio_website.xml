@@ -298,7 +298,7 @@ Default Blogger Styles
     /* Content Top Margin for Blog Posts and Sections */
     .post-header,
     .section-container {
-        margin-top: 2rem;
+        margin-top: 4rem 0rem;
     }
 
     /* Hide header on scroll */
@@ -891,6 +891,160 @@ Default Blogger Styles
     }
 
 
+
+
+
+
+
+
+      .experience-heading {
+            color: #2c3e50;
+            font-size: clamp(24px, 5vw, 36px);
+            line-height: 1.2;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            padding-top: 60px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .experience-container {
+            background: linear-gradient(145deg, #f6f8fa 0%, #f1f1f1 100%);
+            display: flex;
+            justify-content: center;
+            padding: clamp(20px, 5vw, 40px);
+        }
+
+        .experience-wrapper {
+            width: min(90%, 1200px);
+            background-color: #ffffff;
+            padding: clamp(15px, 3vw, 30px);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .experience-card {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            border: none;
+            padding: clamp(15px, 3vw, 25px);
+            background: rgb(255, 255, 255);
+            border-radius: 12px;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 15px;
+            transition: transform 0.2s ease-in-out;
+            gap: 15px;
+            transform: translateY(0px);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .experience-card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .experience-logo-container {
+            width: 60px;
+            height: 60px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .experience-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .experience-title {
+            flex-grow: 1;
+        }
+
+        .experience-company-name {
+            color: #2c3e50;
+            font-size: clamp(16px, 4vw, 20px);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .experience-role {
+            color: #e74c3c;
+            font-weight: 600;
+            font-size: clamp(14px, 3.5vw, 16px);
+            margin: 5px 0 0 0;
+        }
+
+        .experience-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            color: #7f8c8d;
+            font-size: 13px;
+        }
+
+        .experience-description {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .experience-description-item {
+            color: #2c3e50;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .experience-description-bullet {
+            color: #e74c3c;
+            margin-right: 8px;
+        }
+
+        .experience-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-tag {
+            background-color: #f3eae9;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #2c3e50;
+        }
+
+      .skill-tag {
+    background: #f3eae9;
+    color: #2c3e50;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    display: inline-block;
+    margin: 2px;
+    border: 1px solid #d1e8fa;
+    transition: all 0.2s ease;
+    }
+
+
     </style>
 
     <!-- Schema Markup -->
@@ -1064,15 +1218,128 @@ Currently, I&#8217;m focused on developing innovative solutions that enhance eff
 
 
 
-                            <!-- Experience Section -->
+
                             <section class='section-container' id='experience'>
+
+                            <div class='experience'>
                                 <div class='section-content'>
                                     <h2 class='section-title'>Experience</h2>
-                                    <div class='section-body'>
-                                        <!-- Content will be added in Blogger interface -->
-                                    </div>
-                                </div>
+                              </div>
+        <div class='experience-container'>
+            <div class='experience-wrapper'>
+                <div class='experience-content'>
+                    <!-- Cadila Pharmaceuticals -->
+                    <div class='experience-card'>
+                        <div class='experience-card-header'>
+                            <div class='experience-logo-container'>
+                                <img alt='Cadila Pharmaceuticals Logo' class='experience-logo' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJiSN0hRnUZCXpq5RBVFFJ1HLTohetcqB8pcsWy7FaU5qnpEq0DY1_sdae96OnbOLPcVBc3y36bG0QhszVfB-nXiR_ZJMGtJznOK33D394iWS4fPJPbMdb04i0ihnRspLQzVEwFuZ_u-1Zlbmr1Dl4hBp1xjBnA1ciXkO5IhC2e7F5TaWW9D88x38EsZY/s320/cadila-pharmaceuticals6224.webp'/>
+                            </div>
+                            <div class='experience-title'>
+                                <h3 class='experience-company-name'>Cadila Pharmaceuticals Limited</h3>
+                                <p class='experience-role'>Engineering Intern</p>
+                            </div>
+                        </div>
+                        <div class='experience-details'>
+                            <span>📅 July 2024 - September 2024</span>
+                            <span>📍 Samba, J&amp;K</span>
+                        </div>
+                        <div class='experience-skills'>
+                            <span class='skill-tag'>PLC Programming</span>
+                            <span class='skill-tag'>Automation</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Insider Plus -->
+                    <div class='experience-card'>
+                        <div class='experience-card-header'>
+                            <div class='experience-logo-container'>
+                                <img alt='Tech Insider Plus Logo' class='experience-logo' src='https://blogger.googleusercontent.com/img/a/AVvXsEiYqPe1_zA6wLBegSn2pR_tXIUzfy22ra07i2dVrb8zvBd318_TjqodL1nCaJgcbloN8Bv-mjTN0WNlNajEhikxE2gJh-eMytofgeCnX5LpKzVeDdxPRubyziTEkQGVhEnxNhAjTHY9uiFehmQGhPgex_-2F2WuNI2FzzqOLAwyhfQAmq5pLVkqW8yZ=s512'/>
+                            </div>
+                            <div class='experience-title'>
+                                <h3 class='experience-company-name'>Tech Insider Plus</h3>
+                                <p class='experience-role'>Co-Founder &amp; CEO</p>
+                            </div>
+                        </div>
+                        <div class='experience-details'>
+                            <span>📅 May 2021 - January 2024</span>
+                            <span>📍 Tangmarg, J&amp;K</span>
+                        </div>
+                        <ul class='experience-description'>
+                            <li class='experience-description-item'>
+                                <span class='experience-description-bullet'>&#9657;</span>Built tech blog reaching millions of users
+                            </li>
+                            <li class='experience-description-item'>
+                                <span class='experience-description-bullet'>&#9657;</span>Achieved 500K+ monthly impressions
+                            </li>
+                            <li class='experience-description-item'>
+                                <span class='experience-description-bullet'>&#9657;</span>Grew business valuation to $10K
+                            </li>
+                        </ul>
+                        <div class='experience-skills'>
+                            <span class='skill-tag'>SEO</span>
+                            <span class='skill-tag'>Leadership</span>
+                            <span class='skill-tag'>Content Strategy</span>
+                        </div>
+                    </div>
+
+                    <!-- Nucleon -->
+                    <div class='experience-card'>
+                        <div class='experience-card-header'>
+                            <div class='experience-logo-container'>
+                                <img alt='Nucleon Logo' class='experience-logo' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9mPMeAZvXD-0AaJHclEQm5K2WTgzEfM_gqGHtRKCAauUdUatIlpLA7t9h8RSGtoy5lePtrM76XNAe9bGLBVMK2KG0P6vsYL_KTilox0ziWHxfqhcKl7KdJyL_ZqM464zKwXReheca6J28cmBld8VXStUPfFUm3XiuncrpfMer8pWy896KhyphenhyphenmwvQECwUM/s200/nucleon_technologies_pvt_ltd_logo.webp'/>
+                            </div>
+                            <div class='experience-title'>
+                                <h3 class='experience-company-name'>Nucleon - IIT Jammu</h3>
+                                <p class='experience-role'>Data Science Intern</p>
+                            </div>
+                        </div>
+                        <div class='experience-details'>
+                            <span>📅 June 2023 - July 2023</span>
+                            <span>📍 Jammu, J&amp;K</span>
+                        </div>
+                        <ul class='experience-description'>
+                            <li class='experience-description-item'>
+                                <span class='experience-description-bullet'>&#9657;</span>Developed predictive models using Python and R
+                            </li>
+                            <li class='experience-description-item'>
+                                <span class='experience-description-bullet'>&#9657;</span>Created data visualizations and technical reports
+                            </li>
+                        </ul>
+                        <div class='experience-skills'>
+                            <span class='skill-tag'>Python</span>
+                            <span class='skill-tag'>R</span>
+                            <span class='skill-tag'>Data Analysis</span>
+                        </div>
+                    </div>
+
+                    <!-- SkillVertex -->
+                    <div class='experience-card'>
+                        <div class='experience-card-header'>
+                            <div class='experience-logo-container'>
+                                <img alt='SkillVertex Logo' class='experience-logo' src='https://media.glassdoor.com/sqll/4742746/skillvertex-squarelogo-1645177365169.png'/>
+                            </div>
+                            <div class='experience-title'>
+                                <h3 class='experience-company-name'>SkillVertex</h3>
+                                <p class='experience-role'>Artificial Intelligence Intern</p>
+                            </div>
+                        </div>
+                        <div class='experience-details'>
+                            <span>📅 September 2022 - October 2022</span>
+                            <span>📍 Remote</span>
+                        </div>
+                        <div class='experience-skills'>
+                            <span class='skill-tag'>AI</span>
+                            <span class='skill-tag'>Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
                             </section>
+
+
+
 
                             <!-- Education Section -->
                             <section class='section-container' id='education'>
