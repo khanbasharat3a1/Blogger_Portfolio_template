@@ -1044,6 +1044,26 @@ Default Blogger Styles
     transition: all 0.2s ease;
     }
 
+      @media (max-width: 768px) {
+      .experience-wrapper {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);}
+
+      .experience-container{
+    background: linear-gradient(145deg, #f6f8fa 0%, #f1f1f1 100%);
+    display: flex;
+    justify-content: center;
+    padding: clamp(20px, 5vw, 40px);
+    padding-right: 0px;
+    padding-left: 0px;}
+
+
+
+
+      }
+
 
     </style>
 
