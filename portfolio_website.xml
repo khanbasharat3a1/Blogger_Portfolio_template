@@ -942,6 +942,8 @@ Default Blogger Styles
             transition: transform 0.2s ease-in-out;
             gap: 15px;
             transform: translateY(0px);
+      		border-bottom: 1px solid #ccc; /* Light gray line */
+
         }
 
         .experience-card:hover {
@@ -1063,6 +1065,135 @@ Default Blogger Styles
 
 
       }
+
+
+
+
+      @import url(&#39;https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap&#39;);
+
+    .education {
+        background-color: #f4f4f4;
+        font-family: &#39;Poppins&#39;, sans-serif;
+        padding: 50px 0;
+    }
+
+    .education-container {
+        max-width: 84%;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .education-heading {
+        color: #e74c3c;
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        position: relative;
+        animation: fadeInDown 0.8s ease;
+    }
+
+    .education-heading::after {
+        content: &#39;&#39;;
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background-color: #e74c3c;
+    }
+
+    .education-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        animation: fadeInUp 0.8s ease;
+    }
+
+    .education-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .education-logo {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-right: 20px;
+        border-radius: 10px;
+    }
+
+    .education-details {
+        flex-grow: 1;
+    }
+
+    .education-school {
+        color: #2c3e50;
+    	margin-bottom: 5px;
+    	font-size: clamp(16px, 4vw, 20px);
+    	font-weight: 700;
+    }
+
+    .education-degree {
+        color: #647688;
+    	font-weight: 600;
+    	font-size: clamp(14px, 3.5vw, 16px);
+    	margin: 5px 0 5px 0;
+    }
+
+    .education-date {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+    }
+
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .education-card {
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+        }
+
+        .education-logo {
+            margin-right: 0;
+            margin-bottom: 15px;
+        }
+
+      .education-container{
+      	max-width: 800px;
+    	margin: 0 auto;
+    	padding: 0 15px;
+      }
+    }
 
 
     </style>
@@ -1363,12 +1494,41 @@ Currently, I&#8217;m focused on developing innovative solutions that enhance eff
 
                             <!-- Education Section -->
                             <section class='section-container' id='education'>
+                                <div class='education'>
+    <div class='education-container'>
                                 <div class='section-content'>
-                                    <h2 class='section-title'>Education</h2>
-                                    <div class='section-body'>
-                                        <!-- Content will be added in Blogger interface -->
-                                    </div>
-                                </div>
+
+        <h2 class='section-title'>Education</h2>
+      </div>
+
+        <div class='education-card'>
+            <img alt='Model Institute of Engineering and Technology logo' class='education-logo' src='https://mietjmu.in/images/MIET.png'/>
+            <div class='education-details'>
+                <h3 class='education-school'>Model Institute of Engineering and Technology</h3>
+                <h4 class='education-degree'>B.Tec. Electronics and Communication Engineering</h4>
+                <p class='education-date'>Nov 2021 - Nov 2025</p>
+            </div>
+        </div>
+
+        <div class='education-card'>
+            <img alt='Coursera logo' class='education-logo' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhamgpWHM_wOV1ghZW5bayuaT2xSuq7k4KVV-5xD1vQ2uY4pguHP8T6bmLSyCOEz-AomHAfUxAa5vvhm1hVEBEyefWWRfwPp16wVClVKUjoDnHVQm1na1dbprdyrw-QrRon7TN2_A1KnuQiagmA5BST81VCYYEy89_ExH9LTCLENYtjrlnRbW6G4j7w7n4E/s600/gomel-belarus-november-23-2023-600nw-2397966501.webp'/>
+            <div class='education-details'>
+                <h3 class='education-school'>Coursera</h3>
+                <h4 class='education-degree'>Minor Degree, Artificial Intelligence and Machine Learning</h4>
+                <p class='education-date'>Aug 2021 - Aug 2025</p>
+            </div>
+        </div>
+
+        <div class='education-card'>
+            <img alt='Govt Higher Sec. School Chandilora, Tangmarg logo' class='education-logo' src='https://www.idreameducation.org/assets/images/StateBoard/jk-bose-logo.png'/>
+            <div class='education-details'>
+                <h3 class='education-school'>Govt Higher Sec. School Chandilora, Tangmarg</h3>
+                <h4 class='education-degree'>High/Higher Secondary School</h4>
+                <p class='education-date'>2017 - 2019</p>
+            </div>
+        </div>
+    </div>
+</div>
                             </section>
 
                             <!-- Projects Section -->
